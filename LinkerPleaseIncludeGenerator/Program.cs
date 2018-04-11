@@ -19,7 +19,7 @@ namespace LinkerPleaseIncludeGenerator
 
         private void Doit(string path, string outputpath)
         {
-            List<resEntry> typePropertyList = new List<resEntry>();
+            List<AttributeResultEntry> typePropertyList = new List<AttributeResultEntry>();
             List<string> attributeNames = new List<string>();
             foreach (var file in Directory.GetFiles(path, "*.axml"))
             {
@@ -60,7 +60,7 @@ namespace LinkerPleaseIncludeGenerator
 
                 sw.WriteLine(Settings.Default.FilePrefix);
 
-                Action<resEntry, string> Write = (r, txt) =>
+                void Write(AttributeResultEntry r, string txt) =>
                     sw.WriteLine(txt
                     .Replace("{Type}", r.TypeName)
                     .Replace("{TypeWithoutDots}", r.TypeName.Replace(".", "_"))
@@ -109,14 +109,14 @@ namespace LinkerPleaseIncludeGenerator
             //    Console.ReadLine();
         }
 
-        internal class resEntry
+        internal class AttributeResultEntry
         {
             internal string TypeName;
             internal string Property;
             internal string MvxTag;
         }
 
-        public IEnumerable<resEntry> ProcessNode(XmlNode node)
+        public IEnumerable<AttributeResultEntry> ProcessNode(XmlNode node)
         {
             if (node.Attributes != null)
             {
@@ -126,7 +126,7 @@ namespace LinkerPleaseIncludeGenerator
                     {
                         if (att.Value.StartsWith("@")) continue;
 
-                        yield return new resEntry
+                        yield return new AttributeResultEntry
                         {
                             TypeName = node.Name,
                             Property = ParseAttribute(att.Value),

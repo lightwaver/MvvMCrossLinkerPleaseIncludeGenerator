@@ -87,7 +87,7 @@ please simply add it as ignore in the configuration file.
 
 ## Configuration
 
-| property | description |
+| Property | Description |
 | --- | --- |
 | attributeToSearch | AttributeName to search for bindings default *MvxBind*
 | Ignore | A semicolon or newline separated list of propertes or type.property names of things to ignore (e.g. custom binding implementations)
@@ -100,3 +100,10 @@ please simply add it as ignore in the configuration file.
 | FileSuffix | the end of fileSuffix (the ending curly braces for class and namespace)
 
 
+The in the config-file there are some placeholders used:
+
+| Placeholder | Description
+| --- |
+| \{Type} | typename
+| \{TypeWithoutDots} | Type with all dots replaced with underscore 
+| \{Property} | the property or event name
