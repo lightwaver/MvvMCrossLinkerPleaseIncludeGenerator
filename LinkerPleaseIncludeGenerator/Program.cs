@@ -20,6 +20,7 @@ namespace LinkerPleaseIncludeGenerator
         private void Doit(string path, string outputpath)
         {
             List<resEntry> typePropertyList = new List<resEntry>();
+            List<string> attributeNames = new List<string>();
             foreach (var file in Directory.GetFiles(path, "*.axml"))
             {
                 Console.WriteLine($"processing {file}");
@@ -32,8 +33,18 @@ namespace LinkerPleaseIncludeGenerator
                 {
                     if (typePropertyList.Find(t => res.Property == t.Property && res.TypeName == t.TypeName) != null) continue;
                     typePropertyList.Add(res);
-                }
 
+                    if (!attributeNames.Contains(res.MvxTag))
+                    {
+                        attributeNames.Add(res.MvxTag);
+                    }
+                }
+            }
+
+            Console.WriteLine("used Attributes:");
+            foreach (var item in attributeNames)
+            {
+                Console.WriteLine(item);
             }
 
             typePropertyList.Sort((t1, t2) =>
@@ -61,8 +72,6 @@ namespace LinkerPleaseIncludeGenerator
 
                 foreach (var res in typePropertyList)
                 {
-
-
                     if (res.TypeName.Contains("."))
                         res.TypeName = res.TypeName.Substring(res.TypeName.LastIndexOf('.') + 1);
 
@@ -104,6 +113,7 @@ namespace LinkerPleaseIncludeGenerator
         {
             internal string TypeName;
             internal string Property;
+            internal string MvxTag;
         }
 
         public IEnumerable<resEntry> ProcessNode(XmlNode node)
@@ -112,14 +122,15 @@ namespace LinkerPleaseIncludeGenerator
             {
                 foreach (XmlAttribute att in node.Attributes)
                 {
-                    if (att.Name.Contains("Mvx"))
+                    if (att.Name.Contains(Settings.Default.attributeToSearch))
                     {
                         if (att.Value.StartsWith("@")) continue;
 
                         yield return new resEntry
                         {
                             TypeName = node.Name,
-                            Property = ParseAttribute(att.Value)
+                            Property = ParseAttribute(att.Value),
+                            MvxTag = att.Name
                         };
                     }
                 }

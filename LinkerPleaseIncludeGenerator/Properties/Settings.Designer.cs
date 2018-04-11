@@ -52,19 +52,31 @@ namespace LinkerPleaseIncludeGenerator.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("        void Include{TypeWithoutDots}({Type} x) {")]
-        public string TypePrefix {
+        [global::System.Configuration.DefaultSettingValueAttribute("       }\r\n                ")]
+        public string TypeSuffix {
             get {
-                return ((string)(this["TypePrefix"]));
+                return ((string)(this["TypeSuffix"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("            x.{Property} += null;")]
+        public string EventTemplate {
+            get {
+                return ((string)(this["EventTemplate"]));
+            }
+            set {
+                this["EventTemplate"] = value;
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("       }\r\n                ")]
-        public string TypeSuffix {
+        [global::System.Configuration.DefaultSettingValueAttribute("        void Include{TypeWithoutDots}({Type} x)\r\n        {")]
+        public string TypePrefix {
             get {
-                return ((string)(this["TypeSuffix"]));
+                return ((string)(this["TypePrefix"]));
             }
         }
         
@@ -82,7 +94,7 @@ using Post.Mobil.Barcode.Droid;
 
 namespace LinkerPleaseIncludeGenerator
 {
-    public class LinkerPleaseIncludeMeGeneratedTemplate
+    public class LinkerPleaseIncludeMeGenerated
     {
         T UseMe<T>(T def) => def;
 ")]
@@ -94,9 +106,25 @@ namespace LinkerPleaseIncludeGenerator
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Visible;BackgroundDrawableFieldState;SelectedTabIndex;BackgroundDrawableBool;Comm" +
-            "andBarClickCommand;OpenFlyoutMenuLongPress;SenderOnClick;MvxLinearLayout.Text;Op" +
-            "enFlyoutMenu;TextView.TextColor")]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"
+                  Visible
+                  BackgroundDrawableFieldState
+                  SelectedTabIndex
+                  BackgroundDrawableBool
+                  CommandBarClickCommand
+                  OpenFlyoutMenuLongPress
+                  SenderOnClick
+                  MvxLinearLayout.Text
+                  OpenFlyoutMenu
+                  TextView.TextColor
+                  ImageView.DrawableId
+                  ImageView.DrawableName
+                  ImageView.LocalImageUrl
+                  ImageView.Tint
+                  LayoutNotification.NotificationVisible
+                  IrisNumberPicker.NumberPickerValue
+                  BarcodeView.BackgroundDrawableByteArray
+                ")]
         public string Ignore {
             get {
                 return ((string)(this["Ignore"]));
@@ -108,13 +136,13 @@ namespace LinkerPleaseIncludeGenerator
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("            x.{Property} += null;")]
-        public string EventTemplate {
+        [global::System.Configuration.DefaultSettingValueAttribute("MvxBind")]
+        public string attributeToSearch {
             get {
-                return ((string)(this["EventTemplate"]));
+                return ((string)(this["attributeToSearch"]));
             }
             set {
-                this["EventTemplate"] = value;
+                this["attributeToSearch"] = value;
             }
         }
     }

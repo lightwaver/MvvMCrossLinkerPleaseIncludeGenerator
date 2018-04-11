@@ -13,12 +13,16 @@
     <Setting Name="PropertyTemplate" Type="System.String" Scope="Application">
       <Value Profile="(Default)">            x.{Property} = UseMe(x.{Property});</Value>
     </Setting>
-    <Setting Name="TypePrefix" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">        void Include{TypeWithoutDots}({Type} x) {</Value>
-    </Setting>
     <Setting Name="TypeSuffix" Type="System.String" Scope="Application">
       <Value Profile="(Default)">       }
                 </Value>
+    </Setting>
+    <Setting Name="EventTemplate" Type="System.String" Scope="User">
+      <Value Profile="(Default)">            x.{Property} += null;</Value>
+    </Setting>
+    <Setting Name="TypePrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">        void Include{TypeWithoutDots}({Type} x)
+        {</Value>
     </Setting>
     <Setting Name="FilePrefix" Type="System.String" Scope="Application">
       <Value Profile="(Default)">using Android.Support.Design.Widget;
@@ -33,16 +37,34 @@ using Post.Mobil.Barcode.Droid;
 
 namespace LinkerPleaseIncludeGenerator
 {
-    public class LinkerPleaseIncludeMeGeneratedTemplate
+    public class LinkerPleaseIncludeMeGenerated
     {
         T UseMe&lt;T&gt;(T def) =&gt; def;
 </Value>
     </Setting>
     <Setting Name="Ignore" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Visible;BackgroundDrawableFieldState;SelectedTabIndex;BackgroundDrawableBool;CommandBarClickCommand;OpenFlyoutMenuLongPress;SenderOnClick;MvxLinearLayout.Text;OpenFlyoutMenu;TextView.TextColor</Value>
+      <Value Profile="(Default)">
+                  Visible
+                  BackgroundDrawableFieldState
+                  SelectedTabIndex
+                  BackgroundDrawableBool
+                  CommandBarClickCommand
+                  OpenFlyoutMenuLongPress
+                  SenderOnClick
+                  MvxLinearLayout.Text
+                  OpenFlyoutMenu
+                  TextView.TextColor
+                  ImageView.DrawableId
+                  ImageView.DrawableName
+                  ImageView.LocalImageUrl
+                  ImageView.Tint
+                  LayoutNotification.NotificationVisible
+                  IrisNumberPicker.NumberPickerValue
+                  BarcodeView.BackgroundDrawableByteArray
+                </Value>
     </Setting>
-    <Setting Name="EventTemplate" Type="System.String" Scope="User">
-      <Value Profile="(Default)">            x.{Property} += null;</Value>
+    <Setting Name="attributeToSearch" Type="System.String" Scope="User">
+      <Value Profile="(Default)">MvxBind</Value>
     </Setting>
   </Settings>
 </SettingsFile>
