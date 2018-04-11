@@ -1,4 +1,4 @@
-#LinkerPleaseIncludeGenerator
+# LinkerPleaseIncludeGenerator
 
 a small tool for solving problems with the linker when using MvvmCross
 
@@ -54,10 +54,8 @@ using Android.Support.V4.View;
 using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
-using IRIS.ZustellerAppXamarin.Views;
 using MvvmCross.Binding.Droid.Views;
 using MvvmCross.Droid.Support.V7.RecyclerView;
-using Post.Mobil.Barcode.Droid;
 
 namespace LinkerPleaseIncludeGenerator
 {
@@ -77,14 +75,14 @@ namespace LinkerPleaseIncludeGenerator
 
 now all you need to do is to include this in your project and because the properties are now used (even it makes no sense) it will work now.
 
-## some details
+## Some details
 
 There is some configuration in the .config file where you can modify the generated code and some other stuff.
 
 As far as the tool does **not reflect** your code it cannot know **custom binding implemetations** of our project and would try to add them in the class, which might cause a compile time error.
 please simply add it as ignore in the configuration file.
 
-## configuration
+## Configuration
 
 | property | description |
 | --- | --- |
@@ -97,4 +95,7 @@ please simply add it as ignore in the configuration file.
 | EventTemplate | Template for a event
 | TypeSuffix | Suffix of a found type/Method (the ending curly braces fot the method)
 | FileSuffix | the end of fileSuffix (the ending curly braces for class and namespace)
+
+
+
 
