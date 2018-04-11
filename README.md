@@ -10,6 +10,9 @@ But if your project gets larger also your apk file seem to explode (all the sdk 
 The problem starts when using the Linker and MVVMCross or another MvvM Pattern Framework.
 There you only reference Methods and properties from the ui by using it in the MvxBind - so no compiled code references the used properties from the sdk and so the linker removes it.
 
+Here you can find more information about the Linker-topic: https://docs.microsoft.com/en-us/xamarin/android/deploy-test/linker
+
+
 
 ## The solution
 
@@ -95,7 +98,5 @@ please simply add it as ignore in the configuration file.
 | EventTemplate | Template for a event
 | TypeSuffix | Suffix of a found type/Method (the ending curly braces fot the method)
 | FileSuffix | the end of fileSuffix (the ending curly braces for class and namespace)
-
-
 
 
