@@ -104,6 +104,6 @@ The in the config-file there are some placeholders used:
 
 | Placeholder | Description
 | --- |
-| \{Type} | typename
-| \{TypeWithoutDots} | Type with all dots replaced with underscore 
-| \{Property} | the property or event name
+| {Type} | typename
+| {TypeWithoutDots} | Type with all dots replaced with underscore 
+| {Property} | the property or event name
